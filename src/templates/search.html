@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <form method="post" action="/search/blogs">
+        <fieldset>
+            <legend>Search Blogs</legend>
+            <div class="form-group">
+            <label for="user1">User</label>
+            <input type="text" name="user1" id="user1" class="form-control">
+            </div>
+            <button type="submit" id="btn1" class="btn btn-success">Search Blogs</button>
+        </fieldset>
+    </form>
+    <br> <hr> <br>
+    <form method="post" action="/search/posts">
+        <fieldset>
+            <legend>Search Posts</legend>
+            <div class="form-group">
+            <label for="user2">User</label>
+            <input type="text" name="user2" id="user2" class="form-control">
+            </div>
+            <button type="submit" id="btn2" class="btn btn-success">Search Posts</button>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base1.html" %}
+{% block content%}
+<div class="container">
+    <form id="create_post" method="post" action="\user\cp">
+        <fieldset>
+            <legend>Create a Post</legend>
+            <div class="form-group">
+                <label for="blog_id">Select Blog</label>
+                <select name="blog_id" id="blog_id" class="form-control">
+                    {% for blog in blogs %}
+                        <option value="{{ blog._id }}">{{ blog.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" name="content" id="content" rows="5"></textarea>
+            </div>
+            <button type="submit" id="cp" class="btn btn-success">Create Post</button>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

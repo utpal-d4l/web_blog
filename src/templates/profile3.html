@@ -1,0 +1,17 @@
+{% extends "base1.html" %}
+{% block content %}
+<div class="container">
+    <h3>Your Posts</h3>
+    <hr>
+    {% if posts|length > 0 %}
+        {% for post in posts %}
+            <h4> {{ post.title }} </h4>
+            <h6> {{ post.content }} </h6>
+            <h6> {{ post.date_created }} </h6>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <h4> You have no posts on this blog yet. </h4>
+    {% endif %}
+</div>
+{% endblock %}

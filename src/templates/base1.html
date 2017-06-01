@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Online Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+{% block navbar %}
+<div class="fluid-container">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">BlogM</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/user/profile">My Profile</a></li>
+                    <li><a href="/user/create_blog">Create Blogs</a></li>
+                    <li><a href="/user/create_post">Create Posts</a></li>
+                    <li><a href="/user/view_blogs">View Blogs</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block messages %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning fade in alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block head_content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Hello, {{ user }}!</h1>
+        </div>
+    </div>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+</div>
+{% endblock %}
+</body>
+</html>

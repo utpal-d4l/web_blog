@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-form">
+    <form id="form" action="\auth\register" method="post">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control">
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn-success">Sign Up</button>
+    </form>
+    <br> <br>
+    <fieldset>
+        <legend>Instructions</legend>
+        <ol class="list-unstyled">
+            <li>The minimum password length is 8 characters long.</li>
+            <li>The maximum password length is 20 characters long.</li>
+            <li>For strong passwords it is strongly recommended to include numbers and symbols other than alphabets.</li>
+        </ol>
+    </fieldset>
+</div>
+{% endblock %}

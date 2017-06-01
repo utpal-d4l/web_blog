@@ -1,0 +1,16 @@
+{% extends "base1.html" %}
+{% block content %}
+<div class="container">
+    <h3>Your Blogs</h3>
+    <hr>
+    {% if blogs|length > 0 %}
+        {% for blog in blogs %}
+            <h4><a href="/user/view_posts/{{ blog._id }}">{{ blog.title }}</a></h4>
+            <h5> {{ blog.description }} </h5>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <h4> No blogs created. </h4>
+    {% endif %}
+</div>
+{% endblock %}
